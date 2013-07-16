@@ -8,10 +8,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
 public class UserManager extends ActionSupport {
-	String userId;
-	String password;
-	String newPassword;
-	String newUserId;
+	private String userId;
+	private String password;
+	private String newPassword;
+	private String newUserId;
 
 	public String getNewUserId() {
 		return newUserId;
@@ -52,7 +52,7 @@ public class UserManager extends ActionSupport {
 		return ERROR;
 	}
 
-	public String setNewPassword() throws Exception {
+	public String resetPassword() throws Exception {
 		IUserDao iu = UserDaoImp.getInstance();
 		if (iu.setNewPassword(userId, newPassword, password)) {
 			return SUCCESS;
@@ -60,11 +60,25 @@ public class UserManager extends ActionSupport {
 		return ERROR;
 	}
 
-	public String setNewUserId() throws Exception {
+	public String resetUserId() throws Exception {
 		IUserDao iu = UserDaoImp.getInstance();
 		if (iu.setNewUserId(newUserId, userId, password)) {
 			return SUCCESS;
 		}
 		return ERROR;
+	}
+
+	public static void main(String ybz[]) {
+		UserManager um = new UserManager();
+		um.setUserId("admin1");
+		um.setPassword("admin");
+		um.setNewUserId("admin");
+		um.setNewPassword("admin");
+		try {
+			System.out.print(um.resetUserId());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -27,7 +27,7 @@ public class UserDaoImp implements IUserDao {
 
 	public User getUser(String userid) throws SQLException {
 		String sql = "select username, password, permission, language"
-				+ " from [User]" + " where userid = ?";
+				+ " from [user]" + " where userid = ?";
 		IDbProvider ssp = null;
 		User user = null;
 
@@ -47,8 +47,8 @@ public class UserDaoImp implements IUserDao {
 	public boolean setNewPassword(String userid, String newpass, String oldpass)
 			throws SQLException {
 		if (!checkPassword(userid, oldpass))
-			return false;
-		String sql = "update [User] set password = ? " + "where userid=?";
+			throw new SQLException("the user or password is not exist!");
+		String sql = "update user set password = ? " + "where userid=?";
 		IDbProvider ssp = null;
 
 		ssp = MysqlProvider.getInstance();
@@ -65,9 +65,9 @@ public class UserDaoImp implements IUserDao {
 	public boolean setNewUserId(String newUserid, String userid, String pass)
 			throws SQLException {
 		if (!checkPassword(userid, pass))
-			return false;
-		String sql = "update [User] set userid = ? "
-				+ "where userid=?, password=?";
+			throw new SQLException("the user or password is not exist!");
+		String sql = "update user set userid = ? "
+				+ "where userid=? and password=?";
 		IDbProvider ssp = null;
 		ssp = MysqlProvider.getInstance();
 		PreparedStatement pstmt = ssp.getConnection().prepareStatement(sql,
@@ -82,7 +82,7 @@ public class UserDaoImp implements IUserDao {
 	}
 
 	public boolean isUseridExist(String userid) throws SQLException {
-		String sql = "select userid" + " from [User]" + " where userid = ?";
+		String sql = "select userid" + " from [user]" + " where userid = ?";
 		IDbProvider ssp = null;
 
 		ssp = MysqlProvider.getInstance();
@@ -99,7 +99,7 @@ public class UserDaoImp implements IUserDao {
 
 	public boolean checkPassword(String userid, String password)
 			throws SQLException {
-		String sql = "select  password" + " from [User]" + " where userid = ?";
+		String sql = "select  password" + " from user" + " where userid = ?";
 		IDbProvider ssp = null;
 
 		ssp = MysqlProvider.getInstance();
@@ -108,7 +108,6 @@ public class UserDaoImp implements IUserDao {
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
 			String databasepass = rs.getString(1);
-			System.out.println(databasepass + "  " + password);
 			if (databasepass.equals(password)) {
 				pstmt.getConnection().close();
 				return true;

@@ -25,12 +25,12 @@
 			method="login">
 			<result name="success">/Service/EventManager.jsp</result>
 		</action>
-		<action name="setNewPassword" class="com.fm916web.action.user.UserManager"
-			method="setNewPassword">
+		<action name="resetPassword" class="com.fm916web.action.user.UserManager"
+			method="resetPassword">
 			<result name="success">/Service/EventManager.jsp</result>
 		</action>
-		<action name="setNewUserId" class="com.fm916web.action.user.UserManager"
-			method="setNewUserId">
+		<action name="resetUserId" class="com.fm916web.action.user.UserManager"
+			method="resetUserId">
 			<result name="success">/Service/EventManager.jsp</result>
 		</action>
 	</package>
