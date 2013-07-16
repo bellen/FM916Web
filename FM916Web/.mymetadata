@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="FM916Web"
+  id="myeclipse.1373701132639"
+  context-root="/FM916Web"
+  j2ee-spec="5.0"
+  archive="FM916Web.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
