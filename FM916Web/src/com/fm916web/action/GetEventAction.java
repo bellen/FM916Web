@@ -21,8 +21,9 @@ public class GetEventAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		if(currentPage<1){
-			currentPage=1;
+		System.out.println("1");
+		if (currentPage < 1) {
+			currentPage = 1;
 		}
 		init(currentPage);
 		return super.execute();
@@ -35,8 +36,8 @@ public class GetEventAction extends ActionSupport {
 		this.setHasPre(ep.isHasPre());
 		this.setHasNext(ep.isHasNext());
 		this.setList(ep.getList(currentPage));
-		for (int i = 1; i <=getTotalPages(); i++) {
-			Current c=new Current();
+		for (int i = 1; i <= getTotalPages(); i++) {
+			Current c = new Current();
 			c.setCurrentPage(i);
 			pageList.add(c);
 		}
@@ -110,6 +111,6 @@ public class GetEventAction extends ActionSupport {
 		public void setCurrentPage(int currentPage) {
 			this.currentPage = currentPage;
 		}
-		
+
 	}
 }
