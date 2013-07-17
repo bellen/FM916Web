@@ -33,6 +33,11 @@
 			method="setNewUserId">
 			<result name="success">/Service/EventManager.jsp</result>
 		</action>
+		<action name="uploadBannerPic"></action>
+		<action name="getFirst4BannerPics"></action>
+		<action name="getBannerPicsList"></action>
+		<action name="removeBannerPics"></action>
+
 	</package>
 	<constant name="struts.multipart.saveDir" value="e:/test"></constant>
 </struts>    
