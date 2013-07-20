@@ -2,12 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="keywords" content="FM916,SIMULRADIO,海口,音乐电台,广播,音乐"/>
+<meta name="description" content="海口 FM91.6 SIMULRADIO 音乐电台官方网站" />
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<title>EVENTS 事件 - FM 91.6</title>
+<title>ADUIO 节目表 - FM 91.6</title>
 <link href="CSS/style.css" rel="stylesheet" type="text/css">
-<script language="javascript" src="js/jquery-1.7.2.min.js"></script>
-<script language="javascript" src="js/jquery-2.0.2.min.js"></script>
+<!--[if lt IE 9]>
+    <script language="javascript" src="js/jquery-1.10.2.min.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script language="javascript" src="js/jquery-2.0.3.min.js"></script>
+<!--<![endif]-->
 <script language="javascript" type="text/javascript" src="js/imgAuto.js"></script>
 <script language="javascript" src="js/scripts.js"></script>
 </head>
@@ -16,55 +22,23 @@
 <div id="main">
   <div id="left">
     <div id="player">
-    	<audio id="musicbox" src="3.mp3"></audio>
-    	ON AIR 在线直播<a href="javascript:void(0);" id="play" class=""></a>
-    </div>
-    <img src="img/logo.png"/>
+      <div id="playercontent"></div>
+      <a href="javascript:void(0);" id="play" class=""></a><span id="textshow">ON AIR 在线直播</span></div>
+    <div><a href="index.html"><img src="img/logo.png"/></a></div>
     <div id="nav"> <a href="index.html" id="defnav1">Home<span>首页</span></a> <a href="Sub01.html" id="defnav2">EVENTS<span>事件</span></a> <a href="javascript:void(0);" id="nownav">AUDIO<span>节目</span></a> <a href="Sub03.html">VIDEO<span>视频</span></a> <a href="Sub04.html">DJS<span>主持人</span></a> </div>
-    <img src="img/nav_bottom.png"></div>
-    <!----------右侧内容区开始---------->
+    <div><img src="img/nav_bottom.png"></div></div>
+  <!----------右侧内容区开始---------->
   <div id="right">
     <div id="sub_right">
-    <div class="title">SIMULRADIO EVENTS</div>
-    <div class="events_img">
-    	<a href="#">
-    	<img src="photo/670_140_1.jpg"/>
-    	<div class="events_title">年轻就要去德国—2013德国旅游交易会（GTM）分享
-        	<span>2013-07-06 14:32:18</span>
-        </div></a>
+      <div class="title">FM91.6 SIMULRADIO音乐电台 节目表</div>
+      <div id="right_player">节目试听：
+        <audio id="musicplayer1" src="4.mp3"></audio>
+        <a href="javascript:void(0);" id="play1" class=""></a> </div>
+      <div id="events_content"> <img src="photo/670_854_1.jpg"/> </div>
     </div>
-    <div class="events_img">
-    	<a href="#">
-    	<img src="photo/670_140_2.jpg"/>
-    	<div class="events_title">刘若英自导自拍MV
-        	<span>2013-07-06 14:32:18</span>
-        </div></a>
-    </div>
-    <div class="events_img">
-    	<a href="#">
-    	<img src="photo/670_140_3.jpg"/>
-    	<div class="events_title">专辑首发：大队长Ciara回归大碟
-        	<span>2013-07-06 14:32:18</span>
-        </div></a>
-    </div>
-    <div class="events_img">
-    	<a href="#">
-        <img src="photo/670_140_4.jpg"/>
-    	<div class="events_title">吴建豪《Love Overtime》
-        	<span>2013-07-06 14:32:18</span>
-        </div></a>
-    </div>
-    <div class="events_img">
-    	<a href="#">
-    	<img src="photo/670_140_5.jpg"/>
-    	<div class="events_title">青春无悔，有梦就要去追
-        	<span>2013-07-06 14:32:18</span>
-        </div></a>
-    </div>
+    <!------------右侧内容区结束----------> 
   </div>
-  <!------------右侧内容区结束---------->
 </div>
-</div>
-<div id="footer"> <a href="#">关于SIMURADIO</a> <a href="#">节目表</a> <a href="#">广告价格</a> <a href="#">联系我们</a> <a href="#">招聘信息</a> <a href="#">|</a> <a href="http://e.weibo.com/simulradio916" target="_blank"><span></span>新浪官方微博</a> <span>©Copyright by SIMURADIO 2013 916fm.com, all rights reserved <a href="#">京ICP备05034519号</a></span> </div>
+<div id="footer"> <a href="about.html">关于SIMULRADIO</a> <a href="Sub02.html">节目表</a> <a href="price.html">广告价格</a> <a href="contact.html">联系我们</a> <a href="hr.html">招聘信息</a> <a href="javascript:void(0);">|</a> <a href="http://e.weibo.com/simulradio916" target="_blank"><span></span>新浪官方微博</a> <span>©Copyright by SIMURADIO 2013 916fm.com, all rights reserved</span></div>
 </body>
 </html>
