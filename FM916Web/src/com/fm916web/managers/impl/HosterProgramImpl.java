@@ -22,7 +22,7 @@ public class HosterProgramImpl implements IHosterProgram {
 		return false;
 	}
 
-	public Hoster getHoster(String hosterid) throws SQLException {
+	public Hoster getHoster(int hosterid) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -32,13 +32,17 @@ public class HosterProgramImpl implements IHosterProgram {
 		return null;
 	}
 
-	public boolean isHosteridExist(String hosterid) throws SQLException {
+	public boolean isHosteridExist(int hosterid) throws SQLException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean removeHoster(String hosterid, String password)
-			throws SQLException {
+	public boolean removeHoster(Hoster hoster) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean setHoster(Hoster hoster) throws SQLException {
 		// TODO Auto-generated method stub
 		return false;
 	}

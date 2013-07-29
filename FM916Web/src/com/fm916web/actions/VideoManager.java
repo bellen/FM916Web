@@ -17,7 +17,7 @@ public class VideoManager extends ActionSupport {
 	private String titile;
 	private String url;
 	private String description;
-	private List Videos;
+	private List videos;
 
 	public int getId() {
 		return id;
@@ -52,11 +52,11 @@ public class VideoManager extends ActionSupport {
 	}
 
 	public List getVideos() {
-		return Videos;
+		return videos;
 	}
 
 	public void setVideos(List videos) {
-		Videos = videos;
+		this.videos = videos;
 	}
 
 	/**
@@ -138,6 +138,7 @@ public class VideoManager extends ActionSupport {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+
 		}
 		return ERROR;
 	}

@@ -22,7 +22,7 @@ public interface IHosterProgram {
 	 * @return
 	 * @throws SQLException
 	 */
-	public Hoster getHoster(String hosterid) throws SQLException;
+	public Hoster getHoster(int hosterid) throws SQLException;
 
 	/**
 	 * get the hoster instance cross the hosterid
@@ -40,7 +40,7 @@ public interface IHosterProgram {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean isHosteridExist(String hosterid) throws SQLException;
+	public boolean isHosteridExist(int hosterid) throws SQLException;
 
 	/**
 	 * remove the hoster from the database
@@ -50,6 +50,7 @@ public interface IHosterProgram {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean removeHoster(String hosterid, String password)
-			throws SQLException;
+	public boolean removeHoster(Hoster hoster) throws SQLException;
+
+	public boolean setHoster(Hoster hoster) throws SQLException;
 }
