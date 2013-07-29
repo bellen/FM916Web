@@ -12,9 +12,20 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.fm916web.managers.IAudioProgram;
+import com.fm916web.user.IUserDao;
+import com.fm916web.user.impl.UserDaoImp;
 import com.opensymphony.xwork2.ActionContext;
 
 public class AudioProgramImp implements IAudioProgram {
+
+	private static AudioProgramImp instance;
+
+	public static IAudioProgram getInstance() {
+		// TODO multi-thread
+		if (instance == null)
+			instance = new AudioProgramImp();
+		return instance;
+	}
 
 	public boolean UploadBackground(File file, String fileName) {
 		try {
