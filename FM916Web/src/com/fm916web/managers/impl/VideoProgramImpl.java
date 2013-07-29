@@ -22,7 +22,7 @@ public class VideoProgramImpl implements IVideoProgram {
 		return false;
 	}
 
-	public Video getVideo(String videoid) throws SQLException {
+	public Video getVideo(int videoid) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -37,8 +37,12 @@ public class VideoProgramImpl implements IVideoProgram {
 		return false;
 	}
 
-	public boolean removeVideo(String videoid, String password)
-			throws SQLException {
+	public boolean removeVideo(int videoid) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean setVideo(Video video) throws SQLException {
 		// TODO Auto-generated method stub
 		return false;
 	}

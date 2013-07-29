@@ -22,7 +22,7 @@ public interface IVideoProgram {
 	 * @return
 	 * @throws SQLException
 	 */
-	public Video getVideo(String videoid) throws SQLException;
+	public Video getVideo(int videoid) throws SQLException;
 
 	/**
 	 * get the video instance cross the videoid
@@ -50,6 +50,7 @@ public interface IVideoProgram {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean removeVideo(String videoid, String password)
-			throws SQLException;
+	public boolean removeVideo(int videoid) throws SQLException;
+
+	public boolean setVideo(Video video) throws SQLException;
 }

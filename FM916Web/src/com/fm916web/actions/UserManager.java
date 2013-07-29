@@ -1,4 +1,4 @@
-package com.fm916web.action.user;
+package com.fm916web.actions;
 
 import com.fm916web.provider.IDbProvider;
 import com.fm916web.provider.impl.MysqlProvider;
