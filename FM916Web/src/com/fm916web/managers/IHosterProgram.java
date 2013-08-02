@@ -40,7 +40,7 @@ public interface IHosterProgram {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean isHosteridExist(int hosterid) throws SQLException;
+	// public boolean isHosteridExist(int hosterid);
 
 	/**
 	 * remove the hoster from the database

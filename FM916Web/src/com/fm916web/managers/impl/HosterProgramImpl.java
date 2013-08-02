@@ -27,7 +27,7 @@ public class HosterProgramImpl implements IHosterProgram {
 
 	public boolean addHoster(Hoster hoster) throws SQLException {
 		String sql = "insert into " + TABLE_NAME
-				+ " name, icon, description, audio" + "value( ?, ?, ?, ?)";
+				+ " name, icon, description, audio " + "value( ?, ?, ?, ?)";
 		IDbProvider ssp = null;
 		ssp = MysqlProvider.getInstance();
 		PreparedStatement pstmt = ssp.getConnection().prepareStatement(sql);
@@ -64,7 +64,7 @@ public class HosterProgramImpl implements IHosterProgram {
 
 	public List<Hoster> getHosters() throws SQLException {
 		String sql = "select id, name, icon, description, audio" + " from ["
-				+ TABLE_NAME + "]" + " where hosterid = ?";
+				+ TABLE_NAME + "]";
 		IDbProvider ssp = null;
 		List<Hoster> hosters = new ArrayList<Hoster>();
 		Hoster hoster = null;
@@ -84,7 +84,7 @@ public class HosterProgramImpl implements IHosterProgram {
 		return hosters;
 	}
 
-	public boolean isHosteridExist(int hosterid) throws SQLException {
+	private boolean isHosteridExist(int hosterid) throws SQLException {
 		String sql = "select id" + " from [" + TABLE_NAME + "]"
 				+ " where id = ?";
 		IDbProvider ssp = null;
@@ -108,7 +108,7 @@ public class HosterProgramImpl implements IHosterProgram {
 
 	public boolean setHoster(Hoster hoster) throws SQLException {
 		if (!isHosteridExist(hoster.getId()))
-			throw new SQLException("the user or password is not exist!");
+			throw new SQLException("the video is aleardy exists!");
 		String sql = "update user set name=?, icon=?, description=?, audio=? "
 				+ "where id=? ";
 		IDbProvider ssp = null;

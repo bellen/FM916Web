@@ -2,7 +2,7 @@ package com.fm916web.managers.beans;
 
 public class Video {
 	private int id;
-	private String titile;
+	private String title;
 	private String url;
 	private String description;
 
@@ -14,12 +14,12 @@ public class Video {
 		this.id = id;
 	}
 
-	public String getTitile() {
-		return titile;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitile(String titile) {
-		this.titile = titile;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getUrl() {

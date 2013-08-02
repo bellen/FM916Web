@@ -40,7 +40,7 @@ public interface IVideoProgram {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean isVideoidExist(String videoid) throws SQLException;
+	// public boolean isVideoidExist(String videoid) throws SQLException;
 
 	/**
 	 * remove the video from the database

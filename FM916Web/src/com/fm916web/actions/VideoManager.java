@@ -14,7 +14,7 @@ public class VideoManager extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int id;
-	private String titile;
+	private String title;
 	private String url;
 	private String description;
 	private List videos;
@@ -27,12 +27,12 @@ public class VideoManager extends ActionSupport {
 		this.id = id;
 	}
 
-	public String getTitile() {
-		return titile;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitile(String titile) {
-		this.titile = titile;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getUrl() {
@@ -68,7 +68,7 @@ public class VideoManager extends ActionSupport {
 		IVideoProgram iv = VideoProgramImpl.getInstance();
 		Video v = new Video();
 		v.setId(this.getId());
-		v.setTitile(this.getTitile());
+		v.setTitle(this.getTitle());
 		v.setUrl(this.getUrl());
 		v.setDescription(this.getDescription());
 		try {
@@ -108,7 +108,7 @@ public class VideoManager extends ActionSupport {
 		IVideoProgram iv = VideoProgramImpl.getInstance();
 		Video v = new Video();
 		v.setId(this.getId());
-		v.setTitile(this.getTitile());
+		v.setTitle(this.getTitle());
 		v.setUrl(this.getUrl());
 		v.setDescription(this.getDescription());
 		try {
@@ -131,7 +131,7 @@ public class VideoManager extends ActionSupport {
 		try {
 			Video v = iv.getVideo(this.getId());
 			this.setId(v.getId());
-			this.setTitile(v.getTitile());
+			this.setTitle(v.getTitle());
 			this.setUrl(v.getUrl());
 			this.setDescription(v.getDescription());
 			return SUCCESS;
