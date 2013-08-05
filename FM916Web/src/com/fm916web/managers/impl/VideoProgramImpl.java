@@ -26,8 +26,8 @@ public class VideoProgramImpl implements IVideoProgram {
 	}
 
 	public boolean addVideo(Video video) throws SQLException {
-		String sql = "insert into " + TABLE_NAME + " title, url, description "
-				+ "value( ?, ?, ?)";
+		String sql = "insert into " + TABLE_NAME
+				+ " (title, url, description) " + "value( ?, ?, ?)";
 		IDbProvider ssp = null;
 		ssp = MysqlProvider.getInstance();
 		PreparedStatement pstmt = ssp.getConnection().prepareStatement(sql);
@@ -40,8 +40,8 @@ public class VideoProgramImpl implements IVideoProgram {
 	}
 
 	public Video getVideo(int videoid) throws SQLException {
-		String sql = "select title, url, description " + " from [" + TABLE_NAME
-				+ "]" + " where id = ?";
+		String sql = "select title, url, description " + " from " + TABLE_NAME
+				+ " where id = ?";
 		IDbProvider ssp = null;
 		Video video = null;
 		ssp = MysqlProvider.getInstance();
@@ -61,8 +61,8 @@ public class VideoProgramImpl implements IVideoProgram {
 	}
 
 	public List<Video> getVideos() throws SQLException {
-		String sql = "select id, title, url, description " + " from ["
-				+ TABLE_NAME + "]";
+		String sql = "select id, title, url, description " + " from "
+				+ TABLE_NAME ;
 		IDbProvider ssp = null;
 		List<Video> videos = new ArrayList<Video>();
 		Video video = null;
@@ -82,8 +82,7 @@ public class VideoProgramImpl implements IVideoProgram {
 	}
 
 	private boolean isVideoidExist(int videoid) throws SQLException {
-		String sql = "select id" + " from [" + TABLE_NAME + "]"
-				+ " where id = ?";
+		String sql = "select title" + " from " + TABLE_NAME + " where id = ?";
 		IDbProvider ssp = null;
 
 		ssp = MysqlProvider.getInstance();
@@ -106,8 +105,8 @@ public class VideoProgramImpl implements IVideoProgram {
 	public boolean setVideo(Video video) throws SQLException {
 		if (!isVideoidExist(video.getId()))
 			throw new SQLException("the video is aleardy exists!");
-		String sql = "update user set title=?, url=?, description=? "
-				+ "where id=? ";
+		String sql = "update " + TABLE_NAME
+				+ " set title = ?, url = ?, description = ? " + "where id = ? ";
 		IDbProvider ssp = null;
 		ssp = MysqlProvider.getInstance();
 		PreparedStatement pstmt = ssp.getConnection().prepareStatement(sql,
