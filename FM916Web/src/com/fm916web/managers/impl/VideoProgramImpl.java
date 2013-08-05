@@ -62,7 +62,7 @@ public class VideoProgramImpl implements IVideoProgram {
 
 	public List<Video> getVideos() throws SQLException {
 		String sql = "select id, title, url, description " + " from "
-				+ TABLE_NAME ;
+				+ TABLE_NAME;
 		IDbProvider ssp = null;
 		List<Video> videos = new ArrayList<Video>();
 		Video video = null;
@@ -98,8 +98,21 @@ public class VideoProgramImpl implements IVideoProgram {
 	}
 
 	public boolean removeVideo(int videoid) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		// DELETE FROM 表名称 WHERE 列名称 = 值
+		if (!isVideoidExist(videoid))
+			throw new SQLException("the video is aleardy exists!");
+		String sql = "delete from " + TABLE_NAME + " where id = ? ";
+		IDbProvider ssp = null;
+		ssp = MysqlProvider.getInstance();
+		PreparedStatement pstmt = ssp.getConnection().prepareStatement(sql,
+				Statement.RETURN_GENERATED_KEYS);
+
+		pstmt.setInt(1, videoid);
+		pstmt.executeUpdate();
+		ResultSet rs = pstmt.getGeneratedKeys();
+		pstmt.getConnection().close();
+		return true;
+
 	}
 
 	public boolean setVideo(Video video) throws SQLException {

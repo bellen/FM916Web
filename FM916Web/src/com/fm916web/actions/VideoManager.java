@@ -155,17 +155,17 @@ public class VideoManager extends ActionSupport {
 		return ERROR;
 	}
 
-//	public static void main(String arg[]) {
-//		VideoManager vm = new VideoManager();
-//		vm.setId(1);
-//		vm.setTitle("bbb");
-//		vm.setUrl("b.com");
-//		vm.setDescription("bbb");
-//		System.out.println(vm.getAllVideos());
+	public static void main(String arg[]) {
+		VideoManager vm = new VideoManager();
+		vm.setId(1);
+		vm.setTitle("bbb");
+		vm.setUrl("b.com");
+		vm.setDescription("bbb");
+		System.out.println(vm.removeVideo());
 //		System.out.println(vm.videos.size());
 //		System.out.println(vm.getId());
 //		System.out.println(vm.getTitle());
 //		System.out.println(vm.getUrl());
 //		System.out.println(vm.getDescription());
-//	}
+	}
 }
