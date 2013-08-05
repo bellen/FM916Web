@@ -14,15 +14,52 @@ public class HosterManager extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = -7858195809127813069L;
-	private Hoster hoster;
+
+	private int id;
+	private String name;
+	private String icon;
+	private String audio;
+	private String description;
 	private List hosters;
 
-	public Hoster getHoster() {
-		return hoster;
+	public int getId() {
+		return id;
 	}
 
-	public void setHoster(Hoster hoster) {
-		this.hoster = hoster;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
+	public String getAudio() {
+		return audio;
+	}
+
+	public void setAudio(String audio) {
+		this.audio = audio;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public List getHosters() {
@@ -36,7 +73,12 @@ public class HosterManager extends ActionSupport {
 	public String addHoster() {
 		IHosterProgram ih = HosterProgramImpl.getInstance();
 		try {
-			if (ih.addHoster(this.getHoster()))
+			Hoster h = new Hoster();
+			h.setName(this.getName());
+			h.setAudio(this.getAudio());
+			h.setIcon(this.getIcon());
+			h.setDescription(this.getDescription());
+			if (ih.addHoster(h))
 				return SUCCESS;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -48,7 +90,7 @@ public class HosterManager extends ActionSupport {
 	public String removeHoster() {
 		IHosterProgram ih = HosterProgramImpl.getInstance();
 		try {
-			if (ih.removeHoster(this.getHoster()))
+			if (ih.removeHoster(this.getId()))
 				return SUCCESS;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -59,8 +101,14 @@ public class HosterManager extends ActionSupport {
 
 	public String setHoster() {
 		IHosterProgram ih = HosterProgramImpl.getInstance();
+		Hoster h = new Hoster();
+		h.setId(this.getId());
+		h.setName(this.getName());
+		h.setAudio(this.getAudio());
+		h.setIcon(this.getIcon());
+		h.setDescription(this.getDescription());
 		try {
-			if (ih.setHoster(this.getHoster()))
+			if (ih.setHoster(h))
 				return SUCCESS;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -69,11 +117,16 @@ public class HosterManager extends ActionSupport {
 		return ERROR;
 	}
 
-	public String getAHoster() {
+	public String getHoster() {
 		IHosterProgram ih = HosterProgramImpl.getInstance();
 		try {
-			int id = this.getHoster().getId();
-			this.setHoster(ih.getHoster(id));
+			int id = this.getId();
+			Hoster h = ih.getHoster(id);
+			this.setId(h.getId());
+			this.setAudio(h.getAudio());
+			this.setIcon(h.getIcon());
+			this.setDescription(h.getDescription());
+			this.setName(h.getName());
 			return SUCCESS;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -92,5 +145,21 @@ public class HosterManager extends ActionSupport {
 			e.printStackTrace();
 		}
 		return ERROR;
+	}
+
+	public static void main(String arg[]) {
+		HosterManager hm = new HosterManager();
+		hm.setId(1);
+		// hm.setName("aaa2");
+		// hm.setIcon("a.com2");
+		// hm.setAudio("a1.com2");
+		// hm.setDescription("aaa12");
+		System.out.println(hm.removeHoster());
+//		System.out.print(hm.hosters.size());
+		// System.out.println(hm.getAudio());
+		// System.out.println(hm.getId());
+		// System.out.println(hm.getName());
+		// System.out.println(hm.getIcon());
+		// System.out.println(hm.getDescription());
 	}
 }

@@ -27,7 +27,7 @@ public class HosterProgramImpl implements IHosterProgram {
 
 	public boolean addHoster(Hoster hoster) throws SQLException {
 		String sql = "insert into " + TABLE_NAME
-				+ " name, icon, description, audio " + "value( ?, ?, ?, ?)";
+				+ " ( name, icon, description, audio )" + "value( ?, ?, ?, ?)";
 		IDbProvider ssp = null;
 		ssp = MysqlProvider.getInstance();
 		PreparedStatement pstmt = ssp.getConnection().prepareStatement(sql);
@@ -41,8 +41,8 @@ public class HosterProgramImpl implements IHosterProgram {
 	}
 
 	public Hoster getHoster(int hosterid) throws SQLException {
-		String sql = "select name, icon, description, audio" + " from ["
-				+ TABLE_NAME + "]" + " where hosterid = ?";
+		String sql = "select name, icon, description, audio" + " from "
+				+ TABLE_NAME + " where id = ?";
 		IDbProvider ssp = null;
 		Hoster hoster = null;
 		ssp = MysqlProvider.getInstance();
@@ -63,8 +63,8 @@ public class HosterProgramImpl implements IHosterProgram {
 	}
 
 	public List<Hoster> getHosters() throws SQLException {
-		String sql = "select id, name, icon, description, audio" + " from ["
-				+ TABLE_NAME + "]";
+		String sql = "select id, name, icon, description, audio" + " from "
+				+ TABLE_NAME;
 		IDbProvider ssp = null;
 		List<Hoster> hosters = new ArrayList<Hoster>();
 		Hoster hoster = null;
@@ -85,8 +85,7 @@ public class HosterProgramImpl implements IHosterProgram {
 	}
 
 	private boolean isHosteridExist(int hosterid) throws SQLException {
-		String sql = "select id" + " from [" + TABLE_NAME + "]"
-				+ " where id = ?";
+		String sql = "select id" + " from " + TABLE_NAME + " where id = ?";
 		IDbProvider ssp = null;
 
 		ssp = MysqlProvider.getInstance();
@@ -101,15 +100,27 @@ public class HosterProgramImpl implements IHosterProgram {
 		return false;
 	}
 
-	public boolean removeHoster(Hoster hoster) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean removeHoster(int hosterid) throws SQLException {
+		if (!isHosteridExist(hosterid))
+			throw new SQLException("the video is aleardy exists!");
+		String sql = "delete from " + TABLE_NAME + " where id = ? ";
+		IDbProvider ssp = null;
+		ssp = MysqlProvider.getInstance();
+		PreparedStatement pstmt = ssp.getConnection().prepareStatement(sql,
+				Statement.RETURN_GENERATED_KEYS);
+
+		pstmt.setInt(1, hosterid);
+		pstmt.executeUpdate();
+		ResultSet rs = pstmt.getGeneratedKeys();
+		pstmt.getConnection().close();
+		return true;
 	}
 
 	public boolean setHoster(Hoster hoster) throws SQLException {
 		if (!isHosteridExist(hoster.getId()))
 			throw new SQLException("the video is aleardy exists!");
-		String sql = "update user set name=?, icon=?, description=?, audio=? "
+		String sql = "update " + TABLE_NAME
+				+ " set name=?, icon=?, description=?, audio=? "
 				+ "where id=? ";
 		IDbProvider ssp = null;
 		ssp = MysqlProvider.getInstance();

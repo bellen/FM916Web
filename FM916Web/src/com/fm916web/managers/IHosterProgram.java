@@ -50,7 +50,7 @@ public interface IHosterProgram {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean removeHoster(Hoster hoster) throws SQLException;
+	public boolean removeHoster(int hosterid) throws SQLException;
 
 	public boolean setHoster(Hoster hoster) throws SQLException;
 }
